@@ -22,7 +22,7 @@ public class InternetProductDto extends InternetBaseDto {
         Category category = new Category();
         category.setName(this.getCategory());
         product.setCategory(category);
-        product.setDescription(this.getCategory());
+        product.setDescription(this.getDescription());
         return product;
     }
 }

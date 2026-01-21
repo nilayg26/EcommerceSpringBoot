@@ -8,4 +8,5 @@ public interface IService {
     public List<Product> getAllProducts();
     public Product getProductById(long id);   
     public Product createProduct(Product product);
+    public Product replaceProduct(String id,Product product);
 } 
