@@ -31,7 +31,7 @@ public class FakeStoreAPIClient implements IAPIClient {
                 "https://fakestoreapi.com/products/",
                 InternetProductDto[].class);
         if(!response.hasBody()){
-            return null;
+            throw new NullPointerException("No Product Can be found");
         }
         List<InternetProductDto> list = Arrays.asList(response.getBody());
         List<Product> arr = new ArrayList<>();
@@ -46,9 +46,7 @@ public class FakeStoreAPIClient implements IAPIClient {
                 "https://fakestoreapi.com/products/{id}",
                 InternetProductDto.class,
                 id);
-        if(!response.hasBody()){
-            return null;
-        }
+        validate(response);
         InternetProductDto dto  =response.getBody();
         Product product = dto.convert();
         return product;
@@ -62,9 +60,7 @@ public class FakeStoreAPIClient implements IAPIClient {
                 dto,
                 InternetProductDto.class
         );
-        if(!response.hasBody()){
-            return null;
-        }
+        validate(response);
         return response.getBody().convert();
     }
     @Override
@@ -77,10 +73,13 @@ public class FakeStoreAPIClient implements IAPIClient {
                 InternetProductDto.class,
                 id
         );
-        if(!response.hasBody()){
-            return null;
-        }
+        validate(response);
         return response.getBody().convert();
+    }
+    private void validate(ResponseEntity<InternetProductDto> response){
+        if(!response.hasBody()){
+            throw new NullPointerException("Cannot find or create Product");
+        }
     }
     private <T> T nonNull(@Nullable T result) {
       Assert.state(result != null, "No result");

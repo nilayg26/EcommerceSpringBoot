@@ -4,14 +4,18 @@ import com.example.productcatalogservice.dto.CategoryDto;
 import com.example.productcatalogservice.dto.InternetProductDto;
 import com.example.productcatalogservice.dto.ProductDto;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
 public class Product extends BaseModel {
     private Double price;
     private String imageUrl;
+    @ManyToOne
     private Category category;
     public ProductDto convertToDto() {
         ProductDto productDto = new ProductDto();
