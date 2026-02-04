@@ -19,10 +19,12 @@ public class ProductDto extends BaseDto{
         product.setPrice(this.getPrice());
         if(this.getCategory()!=null){
             Category category = new Category();
+            category.setId(this.getCategory().getId());
             category.setName(this.getCategory().getName());
             product.setCategory(category);
         }
         product.setDescription(this.getDescription());
+        product.setImageUrl(imageUrl);
         return product;
     }
 }

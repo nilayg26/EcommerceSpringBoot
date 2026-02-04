@@ -11,7 +11,7 @@ import com.example.productcatalogservice.model.Product;
 
 
 
-@Service
+@Service("internet")
 public class InternetService implements IService {
     @Autowired
     private FakeStoreAPIClient fakeStoreAPIClient;
@@ -31,7 +31,7 @@ public class InternetService implements IService {
         return fakeStoreAPIClient.createProduct(product);
     }
 
-    public Product replaceProduct(String id, Product product) {
+    public Product replaceProduct(long id, Product product) {
         return fakeStoreAPIClient.replaceProduct(id, product);
     }
 

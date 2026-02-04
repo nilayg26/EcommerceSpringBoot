@@ -64,7 +64,7 @@ public class FakeStoreAPIClient implements IAPIClient {
         return response.getBody().convert();
     }
     @Override
-    public Product replaceProduct(String id, Product product) {
+    public Product replaceProduct(long id, Product product) {
         InternetProductDto dto = product.convertToIDto();
         ResponseEntity<InternetProductDto> response =
         putForEntity(
