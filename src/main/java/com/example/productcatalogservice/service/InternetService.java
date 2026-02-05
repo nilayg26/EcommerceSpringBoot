@@ -30,7 +30,7 @@ public class InternetService implements IService {
     public Product createProduct(Product product) {
         return fakeStoreAPIClient.createProduct(product);
     }
-
+    
     public Product replaceProduct(long id, Product product) {
         return fakeStoreAPIClient.replaceProduct(id, product);
     }

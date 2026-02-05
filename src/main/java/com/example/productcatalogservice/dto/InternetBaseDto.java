@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public abstract class InternetBaseDto {
     private Long id;
-    private String title; // Matches API JSON key
+    private String title; 
 }
